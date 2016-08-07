@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<ul>
+	<li><input class="form-control" type="text" name="txtTodo" ng-model="newTodo" placeholder="add to list" /></li>
+	<li><button class="btn btn-primary" ng-click="addTodo()">Add</button></li>
+</ul>
+<p>{{newTodo}}</p>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>To do</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="todo in todos">
+			<td ng-click="deleteTodo(todo._id)">{{todo.todo}}</td>
+		</tr> 
+	</tbody>
+</table>

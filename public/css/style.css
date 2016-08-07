@@ -1,0 +1,49 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	background-color: gray;
+	height: 33px;
+}
+
+.nav a div {
+	padding: 8px 10px 6px 10px;
+	width: 50px;
+	display: inline-block;
+	margin: 0 10px;
+	color: white;
+	font-weight: bold;
+	font-family: 'Tahoma';
+	webkit-box-sizing: none;
+	moz-box-sizing: none;
+	box-sizing: none;
+}
+
+.nav a div:hover {
+	border-bottom: solid 3px orange;
+}
+
+table{
+	cursor: pointer;
+	text-align: center;
+}
+
+th {
+	text-align: center;
+	cursor: default;
+}
