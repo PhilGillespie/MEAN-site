@@ -1,13 +1,16 @@
 var app = angular.module('testApp', [
 	'ui.router'
 	])
-	.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider){
+	.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', function($urlRouterProvider, $stateProvider, $locationProvider){
+		$locationProvider.html5Mode(true);
+		
 		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
 			.state('home', {
 				url: '/',
-				templateUrl: 'partials/home.html' 
+				templateUrl: 'partials/home.html',
+				controller: 'homeCtrl'
 			})
 			.state('toDo', {
 				url: '/todo',
@@ -21,10 +24,12 @@ var app = angular.module('testApp', [
 			})
 			.state('about', {
 				url: '/about',
-				templateUrl: 'partials/about.html' 
+				templateUrl: 'partials/about.html',
+				controller: 'aboutCtrl' 
 			})
 			.state('stuff', {
 				url: '/stuff',
-				templateUrl: 'partials/stuff.html' 
+				templateUrl: 'partials/stuff.html',
+				controller: 'stuffCtrl' 
 			})
 	}]);

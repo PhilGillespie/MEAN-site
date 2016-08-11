@@ -1,8 +1,41 @@
-<div class="main-nav">
+<div class="main-nav" ng-controller="headerCtrl">
 	<nav class="nav">
 		<a ui-sref="home"><div>Home</div></a>
-		<a ui-sref="toDo"><div>To Do</div></a>
-		<a ui-sref="stuff"><div>Stuff</div></a>
-		<a ui-sref="about"><div>About</div></a>
+		<a ui-sref="toDo"><div ng-class="{selected: selected=='todo'}">To Do</div></a>
+		<a ui-sref="stuff"><div ng-class="{selected: selected=='stuff'}">Stuff</div></a>
+		<a ui-sref="about"><div ng-class="{selected: selected=='about'}">About</div></a>
+
+		<div class="login">
+			<a><div ng-click="toggleLogin()">Login / Sign up</div></a>
+		</div>
 	</nav>
+
+	<!--<div class="login-div" ng-show="login">-->
+		<div class="login-div" ng-show="login">
+	        <div class="login-part my-slide-toggle">
+	        	<form name="frmLogin">
+		            <input type="text" placeholder="username" />
+		            <input type="password" placeholder="password" />
+		            <button class="btn-login">Login</button>
+		            <div class="link">
+		                <a ng-click="toggleClick()">Sign up</a>
+		            </div>
+	            </form>
+	        </div>
+	        <div class="sign-up my-slide-toggle">
+	        	<form name="frmSignUp">
+		            <input type="text" placeholder="username" ng-model="user.username" ng-blur="checkUsername()"/>
+		            <input type="email" placeholder="email" ng-model="user.email" />
+		            <input type="password" placeholder="password" ng-model="user.password" />
+		            <button class="btn-login" ng-click="signUp()">Sign up</button>
+		            <div class="link">
+		                <a ng-click="toggleClick()">Login</a>
+		            </div>
+	            </form>
+	        </div>
+	        <div class="btn-close">
+	            <button ng-click="toggleLogin()">X</button>
+	   		</div>
+		</div>
+	<!--</div>-->
 </div>

@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var api = require('./routes/api');
 
 var app = express();
@@ -24,12 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
 app.use('/', routes);
-app.use('/users', users);
 app.use('/api', api);
-
-//db connection
-var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/todo';
-mongoose.connect(mongoUri);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -61,5 +55,9 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+//db connection
+var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/todo';
+mongoose.connect(mongoUri);
 
 module.exports = app;
